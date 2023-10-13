@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Nature Checkout'),
 
     /*
     |--------------------------------------------------------------------------
@@ -168,7 +168,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-    ])->toArray(),
+        ])->toArray(),
+        Spatie\Permission\PermissionServiceProvider::class,
 
     /*
     |--------------------------------------------------------------------------
