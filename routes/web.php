@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Shop\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,22 +13,35 @@ use App\Http\Controllers\Shop\ShopController;
 |
 */
 
-Route::get('/', [Shop\ShopController::class, 'home'])->name('nature-checkout-home');
 
+// Shop Routes
+Route::get('/', [App\Http\Controllers\Shop\ShopController::class, 'home'])->name('nature-checkout-home');
+
+
+//Guest User Auth Routes
 Auth::routes();
 
 
-// Simple user-specific routes
+// Authenticated User-specific routes
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 });
 
 
-Route::group(['middleware' => ['auth:seller', 'seller']], function () {
-    // Seller-specific routes
+
+// Authenticated Admin-specific routes
+Route::group(['middleware' => ['auth:admin', 'admin']], function () {
+
 });
 
-Route::group(['middleware' => ['auth:admin', 'admin']], function () {
-    // Admin-specific routes
+
+
+
+// Authenticated Seller-specific routes
+Route::group(['middleware' => ['auth:seller', 'seller']], function () {
+
 });
+
+
+

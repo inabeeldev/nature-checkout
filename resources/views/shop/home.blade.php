@@ -2,7 +2,7 @@
 @section('content')
 
 
-Hello
+Home Page
 
 
 @endsection
