@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('zip_code');
             $table->float('lat')->nullable();
             $table->float('long')->nullable();
-            $table->string('wallet_amount')->nullable();
+            $table->decimal('wallet_amount', 10, 2)->nullable();
             $table->string('bank_name')->nullable();
             $table->string('bank_routing_number')->nullable();
             $table->string('bank_account_number')->nullable();
